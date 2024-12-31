@@ -1,0 +1,7 @@
+.ability {
+  display: flex;
+
+  .ant-btn:not(:first-child) {
+    margin-left: 8px;
+  }
+}

@@ -1,0 +1,45 @@
+.m-table-part {
+  // 操作列按钮间距
+  .operation-button {
+    &:not(:first-child) {
+      margin-left: 8px;
+    }
+  }
+
+  // 操作列下拉
+  .drop-icon {
+    margin-left: 8px;
+    font-size: 10px;
+
+    &:hover {
+      color: #4096ff;
+    }
+  }
+
+  // 底部设计者
+  .footer {
+    position: sticky;
+    bottom: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    width: 100%;
+    padding: 8px 0;
+    background-color: #fff;
+    border-top: 1px solid #f0f0f0;
+
+    .des {
+      position: absolute;
+      left: 0;
+      float: left;
+      color: rgb(0 0 0 / 88%);
+    }
+
+    .operations {
+      .ant-btn:not(:first-child) {
+        margin-left: 8px;
+      }
+    }
+  }
+}

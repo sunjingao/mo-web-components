@@ -1,0 +1,31 @@
+.m-form {
+  // 当为table的搜索条件时的向下箭头
+  .drop-icon {
+    margin-left: 8px;
+
+    &.rotate {
+      transform: rotate(180deg);
+    }
+
+    &:hover {
+      color: #4096ff;
+    }
+  }
+
+  // 在mobje-form表单中，组件的宽度应该是撑满区域
+  .ant-picker {
+    width: 100%;
+  }
+
+  // 在mobje-form表单中，组件的宽度应该是撑满区域
+  .ant-input-number {
+    width: 100%;
+  }
+
+  // layout 为vertical时，改为纵向排列
+  .ant-form-vertical {
+    :deep(.ant-form-row) {
+      flex-direction: column !important;
+    }
+  }
+}
