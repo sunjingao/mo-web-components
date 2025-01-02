@@ -1,5 +1,5 @@
 import NProgress from 'nprogress';
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 
 const INTRODUCE = [
   {
@@ -126,7 +126,7 @@ export const ROUTERS = {
 };
 
 const router = createRouter({
-  history: createWebHistory('/mo-web-components/dist'),
+  history: createWebHashHistory(),
   routes: [...INTRODUCE, ...BASIC, ...BUSINESS, REDIRECT],
   scrollBehavior() {
     document.getElementById('container').scrollTop = 0;
