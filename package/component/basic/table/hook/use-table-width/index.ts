@@ -5,7 +5,7 @@ export function useTableWidth(tableDomRef) {
   const tablePartWidthRef = ref(100); // 初始化宽度，可以随意设置
 
   const debounceSetTableWidth = debounce(() => {
-    tablePartWidthRef.value = tableDomRef.value.offsetWidth - 8;
+    tablePartWidthRef.value = tableDomRef.value.offsetWidth;
   }, 60);
 
   const WidthObserver = new ResizeObserver(() => {

@@ -31,20 +31,23 @@
           </template>
           <!--content展示-->
           <template v-if="itemContent.type === TYPE.tableCondition">
-            <m-button size="middle" @click="handleReset">重置</m-button>
-            <m-button
-              type="primary"
-              class="ml-8px"
-              size="middle"
-              mode="success"
-              @click="handleQuery"
-              >查询</m-button
-            >
-            <down-outlined
-              v-if="itemsCp.length > 3"
-              :class="['drop-icon', isExpandRef ? 'rotate' : '']"
-              @click="handleToggleExpand"
-            />
+            <!--查询条件靠右侧对齐-->
+            <div class="flex justify-end">
+              <m-button size="middle" @click="handleReset">重置</m-button>
+              <m-button
+                type="primary"
+                class="ml-8px"
+                size="middle"
+                mode="success"
+                @click="handleQuery"
+                >查询</m-button
+              >
+              <down-outlined
+                v-if="itemsCp.length > 3"
+                :class="['drop-icon', isExpandRef ? 'rotate' : '']"
+                @click="handleToggleExpand"
+              />
+            </div>
           </template>
           <template v-else>
             <!--如果有默认插槽，cascader展示有问题-->

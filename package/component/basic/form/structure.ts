@@ -3,7 +3,15 @@ import { TYPE } from './const';
 
 // 当作为搜索条件时，需要展示下拉箭头。在item中的结构
 const TABLE_CONDITION = {
-  type: TYPE.tableCondition
+  type: TYPE.tableCondition,
+  formItemProps: {
+    labelCol: {
+      span: 0
+    },
+    wrapperCol: {
+      span: 24
+    }
+  }
 };
 
 // items中每项的内容

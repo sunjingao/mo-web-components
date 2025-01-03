@@ -1,0 +1,1 @@
+/* empty css                                                            */import{o,c as t,b as e}from"./index-C-q1RFjY.js";const s={class:"marked-body"},_=e("h2",{id:"更新日志"},"更新日志",-1),c=e("h3",{id:"v400"},"v4.0.0",-1),n=e("ul",null,[e("li",null,"首次更新，为初始版本")],-1),a=[_,c,n],m={__name:"index",setup(d){return(i,r)=>(o(),t("div",s,a))}};export{m as default};
