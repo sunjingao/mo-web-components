@@ -3,7 +3,7 @@
   "private": false,
   "version": "4.0.22",
   "type": "module",
-  "main": "./dist-npm",
+  "main": "./dist/mo-web-components.js",
   "scripts": {
     "dev": "vite --mode dev",
     "pack": "cd ./build && index.bat",

@@ -46,7 +46,7 @@ const DOCS_CONFIG = {
   config: {
     base: './',
     build: {
-      outDir: `dist`,
+      outDir: `dist-doc`,
     },
   },
   plugins: [
@@ -80,7 +80,7 @@ const PACKAGES_CONFIG = {
         name: 'mo-web-components',
       },
       sourcemap: true,
-      outDir: 'dist-npm',
+      outDir: 'dist',
       // 确保外部化处理那些你不想打包进库的依赖
       rollupOptions: {
         external: ['vue'],
