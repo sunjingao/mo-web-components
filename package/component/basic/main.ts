@@ -8,7 +8,6 @@ import Table from './table/index.vue';
 import Modal from './modal/index.vue';
 import Drawer from './drawer/index.vue';
 import Upload from './upload/index.vue';
-import Tabs from './tabs/index.vue';
 
 const COMPONENTS = {
   // form内部集成组件
@@ -20,8 +19,7 @@ const COMPONENTS = {
   Table,
   Modal,
   Drawer,
-  Upload,
-  Tabs
+  Upload
 };
 
 // 导出全部组件

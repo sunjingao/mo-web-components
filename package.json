@@ -1,7 +1,7 @@
 {
   "name": "mo-web-components",
   "private": false,
-  "version": "4.0.23",
+  "version": "4.0.24",
   "type": "module",
   "main": "./dist/mo-web-components.js",
   "scripts": {

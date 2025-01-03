@@ -46,14 +46,6 @@ const BASIC = [
     }
   },
   {
-    path: '/basic/tabs',
-    name: 'tabs',
-    component: () => import('../view/basic/tabs/index.md'),
-    meta: {
-      title: 'Tabs 标签页'
-    }
-  },
-  {
     path: '/basic/upload',
     name: 'upload',
     component: () => import('../view/basic/upload/index.md'),
