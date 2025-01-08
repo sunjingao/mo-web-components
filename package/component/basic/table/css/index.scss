@@ -16,7 +16,7 @@
     }
   }
 
-  // 底部设计者
+  // 底部设计
   .footer {
     position: sticky;
     bottom: 0;
@@ -41,5 +41,11 @@
         margin-left: 8px;
       }
     }
+  }
+
+  // 有文字，有操作，文字要在左边，操作在右侧
+  :deep(.ant-pagination-total-text) {
+    position: absolute;
+    left: 0;
   }
 }
