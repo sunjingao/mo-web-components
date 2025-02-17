@@ -1,5 +1,11 @@
 <template>
-  <m-anchor v-if="isShowRef" class="mr-8px" :items="itemsRef" :getContainer="getContainer" />
+  <m-anchor
+    v-if="isShowRef"
+    class="mr-8px"
+    :items="itemsRef"
+    :getContainer="getContainer"
+    @click="handleClick"
+  />
 </template>
 
 <script lang="ts">
@@ -36,10 +42,15 @@ export default defineComponent({
       });
     });
 
+    function handleClick(e) {
+      e.preventDefault();
+    }
+
     return {
       itemsRef,
       isShowRef,
-      getContainer
+      getContainer,
+      handleClick
     };
   }
 });

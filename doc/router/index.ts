@@ -46,6 +46,14 @@ const BASIC = [
     }
   },
   {
+    path: '/basic/select',
+    name: 'select',
+    component: () => import('../view/basic/select/index.md'),
+    meta: {
+      title: 'Select 选择器'
+    }
+  },
+  {
     path: '/basic/upload',
     name: 'upload',
     component: () => import('../view/basic/upload/index.md'),
