@@ -479,10 +479,10 @@ function getData(params) {
 
 ### ability
 
-| 参数      | 说明          | 类型      | 可选值或函数参数                           | 默认值  | 是否必填  |
-|---------- |-------------- |---------- |--------------------------------  |-------- |-------- |
-| config | 配置 | {download: { enable: true, getBlobAsync({ form搜索条件，分页, 顶部切换， table上方切换}){ return {blob, name} } }} | - | - | 否 |
-| items | 操作数组 | Array | [normal[]](#ability-normal)、[multiple[]](#ability-multiple) | - | 否 |
+| 参数      | 说明          | 类型                                                                                                                 | 可选值或函数参数                           | 默认值  | 是否必填  |
+|---------- |-------------- |--------------------------------------------------------------------------------------------------------------------|--------------------------------  |-------- |-------- |
+| config | 配置 | {align: 'right', download: { enable: true, getBlobAsync({ form搜索条件，分页, 顶部切换， table上方切换}){ return {blob, name} } }} | - | - | 否 |
+| items | 操作数组 | Array                                                                                                              | [normal[]](#ability-normal)、[multiple[]](#ability-multiple) | - | 否 |
 
 
 ### ability-normal

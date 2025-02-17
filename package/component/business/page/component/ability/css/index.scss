@@ -1,8 +1,15 @@
 .ability {
   display: flex;
-  justify-content: end;
 
   .ant-btn:not(:first-child) {
     margin-left: 8px;
   }
+}
+
+.left {
+  justify-content: start;
+}
+
+.right {
+  justify-content: end;
 }

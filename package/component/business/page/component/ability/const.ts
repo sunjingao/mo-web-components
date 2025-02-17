@@ -11,6 +11,7 @@ const MULTIPLE_CONTENT = {
 delete MULTIPLE_CONTENT.visible;
 
 const ABILITY_TEMPLATE = {
+  align: 'right',
   config: {
     download: {
       enable: false,

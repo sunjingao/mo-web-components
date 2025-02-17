@@ -1,5 +1,8 @@
 <template>
-  <div :class="['ability', $attrs.class]" :style="$attrs.style">
+  <div
+    :class="['ability', $attrs.class, alignCp === 'right' ? 'right' : 'left']"
+    :style="$attrs.style"
+  >
     <template v-for="(item, index) in abilityItemsCp">
       <m-button
         v-if="item.type === ABILITY_ITEM_TYPE.normal && !item.hidden"
@@ -54,6 +57,7 @@ export default defineComponent({
 
   setup(props, { emit, expose }) {
     const {
+      alignCp,
       abilityItemsCp,
       handleAbilityMulClick,
       handleCancelMultiple,
@@ -67,6 +71,7 @@ export default defineComponent({
     });
 
     return {
+      alignCp,
       abilityItemsCp,
       handleAbilityMulClick,
       ABILITY_ITEM_TYPE,

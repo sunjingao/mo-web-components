@@ -7,7 +7,7 @@ import {
   notification,
   message,
   Modal
-} from './component/ant/main';
+} from './component/depend/main';
 import { COMPONENTS as BASIC_COMPONENTS } from './component/basic/main';
 import { COMPONENTS as BUSINESS_COMPONENTS } from './component/business/main';
 

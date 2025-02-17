@@ -1,5 +1,5 @@
 import { Modal } from '@/main';
-import { message } from '@/component/ant/main';
+import { message } from '@/component/depend/main';
 
 export function useTypeConfig() {
   function handleColumnBtnDisabled(bindValue) {

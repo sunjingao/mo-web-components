@@ -1,7 +1,7 @@
 import { h } from 'vue';
 import { getFileTypeAsync } from '../../util/file';
 import { DOC, FILE_TYPE_MAP, IMG, PACK, VIDEO } from '../../const';
-import { message } from '@/component/ant/main';
+import { message } from '@/component/depend/main';
 
 export function useUpload(
   uploadAsync,

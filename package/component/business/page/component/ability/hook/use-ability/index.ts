@@ -9,7 +9,7 @@ import {
 } from '../../const';
 import { downloadByBlob } from '../../../../../../../util/download';
 import { MULTIPLE } from '@/component/basic/table/const.ts';
-import { message } from '@/component/ant/main';
+import { message } from '@/component/depend/main';
 
 export function useAbility(abilityRef, getParamsAsync, emit, EMITS) {
   const multipleConfigRef = ref({
@@ -42,6 +42,10 @@ export function useAbility(abilityRef, getParamsAsync, emit, EMITS) {
       }
     };
   }
+
+  const alignCp = computed(() => {
+    return abilityRef.value.align || ABILITY_TEMPLATE.align;
+  });
 
   const abilityItemsCp = computed(() => {
     const abilityItemsClone = cloneDeep(abilityRef.value.items) || [];
@@ -133,6 +137,7 @@ export function useAbility(abilityRef, getParamsAsync, emit, EMITS) {
   });
 
   return {
+    alignCp,
     abilityItemsCp,
     multipleConfigRef,
     handleAbilityMulClick,

@@ -1,7 +1,7 @@
 <template>
   <m-tooltip>
     <template #title>{{ value ? value : '-' }}</template>
-    {{ value ? value : '-' }}
+    <span class="des-color">{{ value ? value : '-' }}</span>
   </m-tooltip>
 </template>
 
@@ -14,3 +14,5 @@ export default defineComponent({
   emits: EMITS_DEC
 });
 </script>
+
+<style lang="scss" src="./css/index.scss" scoped></style>
