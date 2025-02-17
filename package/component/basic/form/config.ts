@@ -11,7 +11,8 @@ const EMITS = {
   ...EFFECT_FORM_ITEM_COMPONENT_EVENT,
   query: 'query',
   reset: 'reset',
-  change: 'change'
+  change: 'change',
+  pressEnter: 'pressEnter'
 };
 
 const EMITS_DEC = Object.values(EMITS);

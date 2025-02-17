@@ -63,6 +63,7 @@
               v-else
               v-bind="getFormItemComponentProps(itemContent)"
               v-model:[itemContent.vModelKey]="antFormModelVM[itemContent.uploadKey]"
+              @pressEnter="handlePressEnter(itemContent)"
               @change="(...args) => handleComponentChange(itemContent, ...args)"
             >
               <template v-for="(_, name) in getFormItemComponentSlots($slots)" #[name]="bindValue">
@@ -78,10 +79,9 @@
 
 <script lang="ts">
 import { defineComponent, ref, toRef } from 'vue';
-import { cloneDeep } from 'lodash-es';
 import { DownOutlined } from '@ant-design/icons-vue';
 import { Form as aForm, FormItem as aFormItem } from 'ant-design-vue';
-import { EMITS, EMITS_DEC, PROPS_DES } from './config';
+import { EMITS_DEC, PROPS_DES } from './config';
 import { TYPE } from './const';
 import { useProps } from './hook/use-props/index';
 import { useGridCls } from './hook/use-grid-cls';
@@ -89,6 +89,7 @@ import { useExpand } from './hook/use-expand';
 import { useFormModel } from './hook/use-form-model';
 import { useSlots } from './hook/use-slots';
 import { useItems } from '@/component/basic/form/hook/use-items';
+import { useCondition } from '@/component/basic/form/hook/use-condition';
 
 export default defineComponent({
   components: {
@@ -120,24 +121,11 @@ export default defineComponent({
 
     const { antFormModelVM } = useFormModel(itemsCp, emit, props);
 
-    function handleReset() {
-      const formModelClone = cloneDeep(antFormModelVM.value);
-      const formInstance = formCompRef.value;
-      emit(EMITS.reset, formModelClone, formInstance);
-    }
-
-    function handleQuery() {
-      const formModelClone = cloneDeep(antFormModelVM.value);
-      const formInstance = formCompRef.value;
-      emit(EMITS.query, formModelClone, formInstance);
-    }
-
-    function handleComponentChange(item, ...args) {
-      if (props.type === TYPE.tableCondition && item.enableQuery) {
-        handleQuery();
-      }
-      emit(EMITS.change, ...args);
-    }
+    const { handleReset, handleQuery, handleComponentChange, handlePressEnter } = useCondition(
+      antFormModelVM,
+      formCompRef,
+      emit
+    );
 
     expose({
       antFormComponent: formCompRef,
@@ -163,7 +151,8 @@ export default defineComponent({
       handleComponentChange,
       getFormSlots,
       getFormItemSlots,
-      getFormItemComponentSlots
+      getFormItemComponentSlots,
+      handlePressEnter
     };
   }
 });

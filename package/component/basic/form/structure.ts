@@ -45,12 +45,13 @@ const ITEMS_ITEM = {
       return false;
     }
   },
-  // 当type类型为 tableCondition 并且 query为true，触发query事件
-  enableQuery: {
+  // enableChangeQuery： 当type类型为 tableCondition，数据改变时触发搜索功能
+  // enableEnterQuery： 当type类型为 tableCondition，回车时触发搜索功能，目前仅支持input和InputNumber组件
+  condition: {
     required: false,
-    type: [DATA_TYPE.boolean],
+    type: [DATA_TYPE.object],
     default() {
-      return false;
+      return {};
     }
   },
   // ant-design-vue form-item属性

@@ -24,6 +24,10 @@ const condition = ref({
       uploadKey: '1Input',
       formItemProps: {
         label: '条件1'
+      },
+      condition: {
+        enableChangeQuery: true,
+        enableEnterQuery: true,
       }
     },
     {
@@ -119,7 +123,9 @@ const condition = ref({
     {
       componentName: 'mInput',
       uploadKey: '2Input',
-      enableQuery: true,
+      condition: {
+        enableChangeQuery: true,
+      },
       formItemProps: {
         label: '条件2'
       }

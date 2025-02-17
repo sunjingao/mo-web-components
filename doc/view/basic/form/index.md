@@ -902,16 +902,16 @@ name（已在内部设置好，rules校验不受影响）
 
 ### item
 
-| 参数      | 说明          | 类型      | 可选值或函数参数                           | 默认值  | 是否必填  |
-|---------- |-------------- |---------- |--------------------------------  |-------- |-------- |
-| componentName | 组件名称 | String | - | - | 是 |
-| uploadKey | 绑定数据对象中的key值 | String | - | - | 是 |
-| vModelKey | 绑定组件v-model的key值（非本文档中内置组件中的部分，ant-design-vue其它的组件） | String | - | value | 否 |
-| defaultValue | 组件的默认值，如多选组件的默认值为[] | - | - | false | 否 |
-| hidden | 是否隐藏 | Boolean | - | false | 否 |
-| enableQuery | 此项为Page组件中的功能，开启后当数据改变时会触发查询 | Boolean | - | false | 否 |
-| formItemProps | form-item组件的props | - | - | - | 否 |
-| componentProps | 组件的props，如a-input的props | - | - | - | 否 |
+| 参数                                        | 说明                                                                                                  | 类型      | 可选值或函数参数                           | 默认值  | 是否必填  |
+|-------------------------------------------|-----------------------------------------------------------------------------------------------------|---------- |--------------------------------  |-------- |-------- |
+| componentName                             | 组件名称                                                                                                | String | - | - | 是 |
+| uploadKey                                 | 绑定数据对象中的key值                                                                                        | String | - | - | 是 |
+| vModelKey                                 | 绑定组件v-model的key值（非本文档中内置组件中的部分，ant-design-vue其它的组件）                                                 | String | - | value | 否 |
+| defaultValue                              | 组件的默认值，如多选组件的默认值为[]                                                                                 | - | - | false | 否 |
+| hidden                                    | 是否隐藏                                                                                                | Boolean | - | false | 否 |
+| condition: { enableChangeQuery: false, enableEnterQuery: false } | enableChangeQuery:此项为Page组件中的功能，开启后当数据改变时会触发查询。enableEnterQuery：page组件的功能，仅对input和inputEnter生效，回车搜索 | Boolean | - | false | 否 |
+| formItemProps                             | form-item组件的props                                                                                   | - | - | - | 否 |
+| componentProps                            | 组件的props，如a-input的props                                                                             | - | - | - | 否 |
 
 
 ### Expose
