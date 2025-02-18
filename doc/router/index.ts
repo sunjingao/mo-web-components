@@ -54,6 +54,14 @@ const BASIC = [
     }
   },
   {
+    path: '/basic/cascader',
+    name: 'cascader',
+    component: () => import('../view/basic/cascader/index.md'),
+    meta: {
+      title: 'Cascader 级联选择'
+    }
+  },
+  {
     path: '/basic/upload',
     name: 'upload',
     component: () => import('../view/basic/upload/index.md'),
