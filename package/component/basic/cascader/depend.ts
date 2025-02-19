@@ -1,15 +1,7 @@
-import { searchContent } from '@/util/searchContent';
-
 // 组件配置，用户可以自定义
 const COMPONENT_PROPS = {
   // 默认均开启搜索
-  showSearch: {
-    // 不自定义搜索函数，是按照value进行搜索的
-    // ！这里需要注意，如果option中的文字字段不是label，要手动传入filter，否则搜索会报错
-    filter(input: string, option: any) {
-      return option.filter((item) => searchContent(input, item.label)).length > 0;
-    }
-  }
+  showSearch: true
 };
 
 // 受到影响的组件参数，用户不能自定义

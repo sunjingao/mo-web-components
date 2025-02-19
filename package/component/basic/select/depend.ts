@@ -1,12 +1,10 @@
-import { searchContent } from '@/util/searchContent';
-
 // 组件配置，用户可以自定义
 const COMPONENT_PROPS = {
   showSearch: true, // 当当选的时候，需要配置此项才能搜索。多选自带搜索
   // 不自定义搜索函数，是按照value进行搜索的
   // ！这里需要注意，如果option中的文字字段不是label，要手动传入filterOption，否则搜索会报错
   filterOption: function (input: string, option: any) {
-    return searchContent(input, option.label);
+    return option.label.includes(input);
   }
 };
 
