@@ -1,15 +1,16 @@
 import { computed } from 'vue';
 import { EMITS } from '../../config';
 
+// 获得组件映射后的key的名字
+export function getKeyName(fieldNamesCp, key) {
+  return (fieldNamesCp.value && fieldNamesCp.value[key]) || key;
+}
+
 export function useMultiple(modeCp, valueCp, optionsCp, fieldNamesCp, emit) {
   // 获得所有的values
   function getAllValues(ops, allValues = []) {
     ops.forEach((item) => {
-      if (Array.isArray(item[fieldNamesCp.children || 'children'])) {
-        getAllValues(item[fieldNamesCp.children || 'children'], allValues);
-      } else {
-        allValues.push(item[fieldNamesCp.value || 'value']);
-      }
+      allValues.push(item[getKeyName(fieldNamesCp, 'value')]);
     });
 
     return allValues;

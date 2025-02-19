@@ -24,6 +24,13 @@ const PROPS_DES = {
     required: false,
     type: Boolean
   },
+  showCheckedStrategy: {
+    required: false,
+    type: String,
+    default() {
+      return 'SHOW_PARENT';
+    }
+  },
   // 多选时，是否开启全选功能
   enableSelectAll: {
     required: false,

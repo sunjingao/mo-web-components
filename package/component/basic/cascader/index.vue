@@ -8,6 +8,7 @@
       :multiple="multiple"
       :options="options"
       :fieldNames="fieldNames"
+      :showCheckedStrategy="showCheckedStrategy"
       @update:value="handleUpdateValue"
     >
       <template v-for="(_, name) in getSlots($slots)" #[name]="bindValue">
@@ -62,6 +63,7 @@ export default defineComponent({
         toRef(props, 'value'),
         toRef(props, 'options'),
         toRef(props, 'fieldNames'),
+        toRef(props, 'showCheckedStrategy'),
         emit
       );
 
