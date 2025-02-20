@@ -27,6 +27,7 @@ export function useCondition(antFormModelVM, formCompRef, emit) {
   // 回车的处理，作为page组件的搜索条件时，判断是否进行回车搜索
   function handlePressEnter(item, ...args) {
     if (!item.condition.enableEnterQuery) {
+      emit(EMITS.pressEnter, ...args);
       return;
     }
 
