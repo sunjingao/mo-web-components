@@ -1,0 +1,26 @@
+.drag-item {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  cursor: pointer;
+
+  .drag-icon {
+    width: 30px;
+  }
+
+  .checkbox {
+    margin-left: 8px;
+  }
+}
+
+.no-drag-item {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding-left: 30px;
+
+  .checkbox {
+    margin-left: 8px;
+    cursor: pointer;
+  }
+}

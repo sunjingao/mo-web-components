@@ -1,0 +1,27 @@
+.m-title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: 600;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    bottom: -1px;
+    left: 0;
+    width: 2px;
+    content: '';
+    background-color: #1677ff;
+  }
+
+  .description {
+    margin-left: 8px;
+    font-size: 14px;
+    font-weight: normal;
+    color: #97a8be;
+  }
+}

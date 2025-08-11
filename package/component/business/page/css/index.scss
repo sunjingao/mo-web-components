@@ -1,0 +1,15 @@
+.m-page {
+  .table-container {
+    display: flex;
+    margin-top: 8px;
+
+    // 全屏时，浏览器背景是黑色，在这进行背景设置
+    background-color: #fff !important;
+
+    .table-slot {
+      position: sticky;
+      top: 0;
+      height: 100%;
+    }
+  }
+}

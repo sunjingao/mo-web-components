@@ -1,0 +1,18 @@
+.m-preview-download {
+  display: inline-block;
+}
+
+.full-modal {
+  .ant-modal-content {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh);
+  }
+
+  .ant-modal-body {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+  }
+}
