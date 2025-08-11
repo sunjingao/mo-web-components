@@ -111,7 +111,7 @@ const PACKAGES_CONFIG = {
 
 export default defineConfig(({mode}) => {
   const viteConfig = mode === 'dev' ? DEV_CONFIG : (
-    mode === 'doc' ? DOCS_CONFIG : PACKAGES_CONFIG
+      mode === 'doc' ? DOCS_CONFIG : PACKAGES_CONFIG
   )
 
   return {
