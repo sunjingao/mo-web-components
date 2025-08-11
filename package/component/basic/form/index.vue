@@ -63,7 +63,7 @@
               v-else
               v-bind="getFormItemComponentProps(itemContent)"
               v-model:[itemContent.vModelKey]="antFormModelVM[itemContent.uploadKey]"
-              @pressEnter="handlePressEnter(itemContent)"
+              @pressEnter="(...args) => handlePressEnter(itemContent, ...args)"
               @change="(...args) => handleComponentChange(itemContent, ...args)"
             >
               <template v-for="(_, name) in getFormItemComponentSlots($slots)" #[name]="bindValue">

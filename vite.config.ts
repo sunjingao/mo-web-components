@@ -78,6 +78,7 @@ const PACKAGES_CONFIG = {
       lib: {
         entry: './package/main.ts',
         name: 'mo-web-components',
+        formats: ['es']
       },
       sourcemap: true,
       outDir: 'dist',
@@ -110,7 +111,7 @@ const PACKAGES_CONFIG = {
 
 export default defineConfig(({mode}) => {
   const viteConfig = mode === 'dev' ? DEV_CONFIG : (
-    mode === 'doc' ? DOCS_CONFIG : PACKAGES_CONFIG
+      mode === 'doc' ? DOCS_CONFIG : PACKAGES_CONFIG
   )
 
   return {

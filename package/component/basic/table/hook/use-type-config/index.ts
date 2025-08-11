@@ -16,7 +16,9 @@ export function useTypeConfig() {
     }
     const navigator = window.navigator;
 
-    !!navigator && !!navigator.clipboard && navigator.clipboard.writeText(text);
+    if (navigator && navigator.clipboard) {
+      navigator.clipboard.writeText(text);
+    }
 
     message.success('已复制');
   }

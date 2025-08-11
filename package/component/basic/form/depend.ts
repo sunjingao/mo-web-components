@@ -82,7 +82,11 @@ const EFFECT_FORM_ITEM_COMPONENT_PROPS = {};
 const EFFECT_FORM_ITEM_COMPONENT_SLOTS = {};
 // 受到影响的事件，并非直接使用v-bind
 const EFFECT_FORM_ITEM_COMPONENT_EVENT = {};
-
+// 受到影响的方法，需要先执行内部封装的方法，再执行外部赋值的方法
+const EFFECT_FORM_ITEM_COMPONENT_EXE_FUNCTION = {
+  onChange: 'onChangeTem',
+  onPressEnter: 'onPressEnterTem'
+};
 // --------------------- FORM-ITEM的组件的相关内容 ---------------------
 
 export {
@@ -97,5 +101,6 @@ export {
   FORM_ITEM_COMPONENT_PROPS,
   EFFECT_FORM_ITEM_COMPONENT_PROPS,
   EFFECT_FORM_ITEM_COMPONENT_SLOTS,
-  EFFECT_FORM_ITEM_COMPONENT_EVENT
+  EFFECT_FORM_ITEM_COMPONENT_EVENT,
+  EFFECT_FORM_ITEM_COMPONENT_EXE_FUNCTION
 };

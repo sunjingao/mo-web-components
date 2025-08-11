@@ -5,7 +5,8 @@ import {
   FORM_ITEM_PROPS,
   get_EFFECT_FORM_ITEM_PROPS,
   FORM_ITEM_COMPONENT_PROPS,
-  EFFECT_FORM_ITEM_COMPONENT_PROPS
+  EFFECT_FORM_ITEM_COMPONENT_PROPS,
+  EFFECT_FORM_ITEM_COMPONENT_EXE_FUNCTION
 } from '../../depend';
 import { COMPONENTS } from '../../const';
 import { getIsCustomComponent } from '../../util/index';
@@ -48,6 +49,15 @@ export function useProps() {
     for (const propName of Object.values(EFFECT_FORM_ITEM_COMPONENT_PROPS)) {
       delete componentProps[propName];
     }
+
+    // 有些方法需要先在内部执行，再执行外部的。先重命名，再在合适的地方进行执行
+    for (const [oriName, rename] of Object.entries(EFFECT_FORM_ITEM_COMPONENT_EXE_FUNCTION)) {
+      if (componentProps.hasOwnProperty(oriName)) {
+        componentProps[rename] = componentProps[oriName];
+        delete componentProps[oriName];
+      }
+    }
+
     if (getIsCustomComponent(item.componentName)) {
       return Object.assign(
         componentProps,
@@ -56,7 +66,6 @@ export function useProps() {
       );
     } else {
       const SET_COM_PROPS = COMPONENTS[lowerFirst(item.componentName)].componentProps;
-
       return Object.assign(
         componentProps,
         cloneDeep(FORM_ITEM_COMPONENT_PROPS),

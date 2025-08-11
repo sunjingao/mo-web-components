@@ -1,5 +1,13 @@
 import { cloneDeep } from 'lodash-es';
 import { EMITS } from '@/component/basic/form/config.ts';
+import { EFFECT_FORM_ITEM_COMPONENT_EXE_FUNCTION } from '@/component/basic/form/depend.ts';
+
+// 执行组件配置的方法
+function exeComponentOri(componentProps, cbName, args) {
+  if (componentProps.hasOwnProperty(EFFECT_FORM_ITEM_COMPONENT_EXE_FUNCTION[cbName])) {
+    componentProps[EFFECT_FORM_ITEM_COMPONENT_EXE_FUNCTION[cbName]](...args);
+  }
+}
 
 export function useCondition(antFormModelVM, formCompRef, emit) {
   // 重置
@@ -21,18 +29,18 @@ export function useCondition(antFormModelVM, formCompRef, emit) {
     if (item.condition.enableChangeQuery) {
       handleQuery();
     }
-    emit(EMITS.change, ...args);
+    exeComponentOri(item.componentProps, 'onChange', args);
   }
 
   // 回车的处理，作为page组件的搜索条件时，判断是否进行回车搜索
   function handlePressEnter(item, ...args) {
     if (!item.condition.enableEnterQuery) {
-      emit(EMITS.pressEnter, ...args);
+      exeComponentOri(item.componentProps, 'onPressEnter', args);
       return;
     }
 
     handleQuery();
-    emit(EMITS.pressEnter, ...args);
+    exeComponentOri(item.componentProps, 'onPressEnter', args);
   }
 
   return {

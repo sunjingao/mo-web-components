@@ -10,9 +10,7 @@ const EMITS = {
   ...EFFECT_FORM_ITEM_EVENT,
   ...EFFECT_FORM_ITEM_COMPONENT_EVENT,
   query: 'query',
-  reset: 'reset',
-  change: 'change',
-  pressEnter: 'pressEnter'
+  reset: 'reset'
 };
 
 const EMITS_DEC = Object.values(EMITS);
