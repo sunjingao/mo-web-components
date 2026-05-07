@@ -1,12 +1,13 @@
 {
   "name": "mo-web-components",
   "private": false,
-  "version": "4.0.33",
+  "version": "4.0.40",
   "type": "module",
   "main": "./dist/mo-web-components.js",
   "scripts": {
     "dev": "vite --mode dev",
-    "pack": "cd ./build && index.bat",
+    "pack-windows": "cd ./build-windows && index.bat",
+    "pack-mac": "cd ./build-mac && chmod +x index.sh && ./index.sh",
     "doc": "vite build --mode doc"
   },
   "dependencies": {
