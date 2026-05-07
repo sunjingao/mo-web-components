@@ -14,6 +14,7 @@
       v-model="formConfigRef.data"
       v-bind="condition"
       :type="FORM_TYPE.tableCondition"
+      :columnsNumber="formConfigRef.length"
       @query="handleFormQuery"
       @reset="handleFormReset"
     />
@@ -120,7 +121,8 @@ export default defineComponent({
     });
 
     const formConfigRef = ref({
-      data: {}
+      data: {},
+      length: 0
     });
 
     const abilityRef = ref(null);
@@ -156,6 +158,14 @@ export default defineComponent({
         const formParams = cloneDeep(formConfigRef.value.data);
         Object.assign(params, cloneDeep(formParams));
       }
+
+      const length = Object.keys(formConfigRef.value.data).length;
+      if (length === 1) {
+        formConfigRef.value.length = 2;
+      } else {
+        formConfigRef.value.length = 3;
+      }
+
       // tableAboveTabs参数
       if (tableAboveTabsConfigRef.value.data) {
         const tableAboveParams = {
