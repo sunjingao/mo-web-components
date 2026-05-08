@@ -68,7 +68,8 @@ function getOperationsColumnWidth(operationsColumnItems) {
 
   if (showBtns.length < operationsColumnItems.length) {
     // 添加图标大小
-    opsColumnLen = opsColumnLen + btnAndDropSpace + iconLen;
+    // 数字2比较特别，浏览器有时候处理像素的问题，是特别处理
+    opsColumnLen = opsColumnLen + btnAndDropSpace + iconLen + 2;
   }
 
   // 添加整体的padding
