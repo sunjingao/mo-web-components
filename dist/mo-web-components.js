@@ -78120,7 +78120,7 @@ function Ice(e, t, n, o, r, l) {
   return Re(), Et(a, Ft({
     class: [e.$attrs.class, "m-drawer"],
     style: e.$attrs.style
-  }, e.getProps(e.$attrs)), Sr({ _: 2 }, [
+  }, e.getProps(e.$attrs), { closable: !1 }), Sr({ _: 2 }, [
     rn(e.getSlots(e.$slots), (i, s) => ({
       name: s,
       fn: pt((c) => [

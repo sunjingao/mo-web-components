@@ -1,5 +1,10 @@
 <template>
-  <a-drawer :class="[$attrs.class, `m-drawer`]" :style="$attrs.style" v-bind="getProps($attrs)">
+  <a-drawer
+    :class="[$attrs.class, `m-drawer`]"
+    :style="$attrs.style"
+    v-bind="getProps($attrs)"
+    :closable="false"
+  >
     <template v-for="(_, name) in getSlots($slots)" #[name]="bindValue">
       <slot v-bind="bindValue" :key="name" :name="name" />
     </template>
