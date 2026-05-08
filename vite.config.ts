@@ -1,11 +1,10 @@
-import {fileURLToPath, URL} from 'node:url';
-import {defineConfig} from 'vite';
+import { fileURLToPath, URL } from 'node:url';
+import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import unoCSS from 'unocss/vite';
 import eslintPlugin from 'vite-plugin-eslint';
 import stylelintPlugin from 'vite-plugin-stylelint';
-import markedPreview from 'vite-plugin-doc-preview'
-import { visualizer } from 'rollup-plugin-visualizer';
+import markedPreview from 'vite-plugin-doc-preview';
 
 const DEV_CONFIG = {
   config: {
@@ -21,11 +20,11 @@ const DEV_CONFIG = {
           rewrite: (path) => path.replace(new RegExp('^/api'), '')
         }
       }
-    },
+    }
   },
   plugins: [
     vue({
-      include: [/\.vue$/, /\.md$/],
+      include: [/\.vue$/, /\.md$/]
     }),
     markedPreview(),
     eslintPlugin({
@@ -35,23 +34,23 @@ const DEV_CONFIG = {
         'doc/*.{js,ts,vue}',
         '*.{js,ts}',
         'package/**/*.{js,ts,vue}',
-        'package/*.{js,ts,vue}',
+        'package/*.{js,ts,vue}'
       ],
       fix: true
-    }),
+    })
   ]
-}
+};
 
 const DOCS_CONFIG = {
   config: {
     base: './',
     build: {
-      outDir: `dist-doc`,
-    },
+      outDir: `dist-doc`
+    }
   },
   plugins: [
     vue({
-      include: [/\.vue$/, /\.md$/],
+      include: [/\.vue$/, /\.md$/]
     }),
     markedPreview(),
     eslintPlugin({
@@ -61,15 +60,15 @@ const DOCS_CONFIG = {
         'doc/*.{js,ts,vue}',
         '*.{js,ts}',
         'package/**/*.{js,ts,vue}',
-        'package/*.{js,ts,vue}',
+        'package/*.{js,ts,vue}'
       ],
       fix: true
-    }),
+    })
     // visualizer({
     //   open: true
     // })
   ]
-}
+};
 
 const PACKAGES_CONFIG = {
   config: {
@@ -84,13 +83,13 @@ const PACKAGES_CONFIG = {
       outDir: 'dist',
       // 确保外部化处理那些你不想打包进库的依赖
       rollupOptions: {
-        external: ['vue'],
+        external: ['vue']
       }
-    },
+    }
   },
   plugins: [
     vue({
-      include: [/\.vue$/],
+      include: [/\.vue$/]
     }),
     eslintPlugin({
       cache: false,
@@ -99,27 +98,25 @@ const PACKAGES_CONFIG = {
         'doc/*.{js,ts,vue}',
         '*.{js,ts}',
         'package/**/*.{js,ts,vue}',
-        'package/*.{js,ts,vue}',
+        'package/*.{js,ts,vue}'
       ],
       fix: true
-    }),
+    })
     // visualizer({
     //   open: true
     // })
   ]
-}
+};
 
-export default defineConfig(({mode}) => {
-  const viteConfig = mode === 'dev' ? DEV_CONFIG : (
-      mode === 'doc' ? DOCS_CONFIG : PACKAGES_CONFIG
-  )
+export default defineConfig(({ mode }) => {
+  const viteConfig = mode === 'dev' ? DEV_CONFIG : mode === 'doc' ? DOCS_CONFIG : PACKAGES_CONFIG;
 
   return {
     ...viteConfig.config,
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./package', import.meta.url)),
-        '@doc': fileURLToPath(new URL('./doc', import.meta.url)),
+        '@doc': fileURLToPath(new URL('./doc', import.meta.url))
       }
     },
 
@@ -133,7 +130,7 @@ export default defineConfig(({mode}) => {
           'doc/**/*.{css,scss,less}',
           'doc/*.{css,scss,less}',
           'package/**/*.{css,scss,less}',
-          'package/*.{css,scss,less}',
+          'package/*.{css,scss,less}'
         ],
         fix: true
       })

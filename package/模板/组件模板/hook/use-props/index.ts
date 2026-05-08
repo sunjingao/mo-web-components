@@ -10,7 +10,11 @@ export function useProps() {
       delete componentProps[propName];
     }
 
-    return Object.assign(cloneDeep(componentProps), cloneDeep(COMPONENT_PROPS), cloneDeep(componentProps));
+    return Object.assign(
+      cloneDeep(componentProps),
+      cloneDeep(COMPONENT_PROPS),
+      cloneDeep(componentProps)
+    );
   }
 
   return {

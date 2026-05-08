@@ -24,12 +24,16 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["package/*"],
-      "@doc/*": ["doc/*"],
+      "@doc/*": ["doc/*"]
     }
   },
   "include": [
     "doc/**/*.ts",
     "doc/**/*.tsx",
-    "doc/**/*.vue", "package/**/*.ts", "package/**/*.tsx", "package/**/*.vue"],
+    "doc/**/*.vue",
+    "package/**/*.ts",
+    "package/**/*.tsx",
+    "package/**/*.vue"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

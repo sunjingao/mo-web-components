@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import {useVModel} from "@vueuse/core/index";
+import { defineComponent } from 'vue';
+import { useVModel } from '@vueuse/core/index';
 
 export default defineComponent({
   props: {
@@ -15,15 +15,13 @@ export default defineComponent({
   },
   emits: ['update:value'],
   setup(props, { emit }) {
-    const valVM = useVModel(props, 'value', emit)
+    const valVM = useVModel(props, 'value', emit);
 
     return {
       valVM
-    }
+    };
   }
-})
+});
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

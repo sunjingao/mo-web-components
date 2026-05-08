@@ -6,16 +6,16 @@ import { lastestContent } from '../util/read-log-version.js';
 const execPromise = util.promisify(exec);
 
 async function runCommand() {
-    try {
-        await execPromise(`git add .`)
-        console.log(`整体 add 完成`)
-        await execPromise(`git commit -m "${lastestContent}"`)
-        console.log(`整体 commit 完成`)
-        await execPromise(`git push -u origin master`)
-        console.log(`整体 push 完成`)
-    } catch (error) {
-        console.error('execPromise error:', error);
-    }
+  try {
+    await execPromise(`git add .`);
+    console.log(`整体 add 完成`);
+    await execPromise(`git commit -m "${lastestContent}"`);
+    console.log(`整体 commit 完成`);
+    await execPromise(`git push -u origin master`);
+    console.log(`整体 push 完成`);
+  } catch (error) {
+    console.error('execPromise error:', error);
+  }
 }
 
-runCommand()
+runCommand();

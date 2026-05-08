@@ -7,7 +7,7 @@ import {
 export function useSlots() {
   function getFormSlots(slots) {
     /* eslint-disable-next-line */
-    const {...componentSlots} = slots;
+    const { ...componentSlots } = slots;
     for (const slotName of Object.values(EFFECT_FORM_SLOTS)) {
       delete componentSlots[slotName];
     }
@@ -17,7 +17,7 @@ export function useSlots() {
 
   function getFormItemSlots(slots) {
     /* eslint-disable-next-line */
-    const {...componentSlots} = slots;
+    const { ...componentSlots } = slots;
     for (const slotName of Object.values(EFFECT_FORM_ITEM_SLOTS)) {
       delete componentSlots[slotName];
     }
@@ -27,7 +27,7 @@ export function useSlots() {
 
   function getFormItemComponentSlots(slots) {
     /* eslint-disable-next-line */
-    const {...componentSlots} = slots;
+    const { ...componentSlots } = slots;
     for (const slotName of Object.values(EFFECT_FORM_ITEM_COMPONENT_SLOTS)) {
       delete componentSlots[slotName];
     }

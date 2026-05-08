@@ -3,32 +3,33 @@ import screenfull from 'screenfull';
 
 const stickyRef = ref({});
 
-export function useFullscreen() {
-  const tableContainerDomRef = ref(null);
+export function useFullscreen(antTableComponentRef) {
+  let tableContainer = null;
 
   function changeFullScreen() {
     if (screenfull.isFullscreen) {
       stickyRef.value = {
         getContainer: () => {
-          return tableContainerDomRef.value;
+          return tableContainer;
         }
       };
-      tableContainerDomRef.value.classList.add('m-overflow-auto');
+      tableContainer.classList.add('m-overflow-auto');
     } else {
       stickyRef.value = undefined;
-      tableContainerDomRef.value.classList.remove('m-overflow-auto');
+      tableContainer.classList.remove('m-overflow-auto');
     }
   }
 
   // 全屏展示
   function handleFullScreen() {
-    const target = tableContainerDomRef.value;
+    const target = tableContainer;
     if (screenfull.isEnabled) {
       screenfull.request(target);
     }
   }
 
   onMounted(() => {
+    tableContainer = antTableComponentRef.value.$el;
     screenfull.on('change', changeFullScreen);
   });
 
@@ -37,7 +38,6 @@ export function useFullscreen() {
   });
 
   return {
-    tableContainerDomRef,
     handleFullScreen,
     stickyRef
   };

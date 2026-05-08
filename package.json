@@ -8,7 +8,11 @@
     "dev": "vite --mode dev",
     "pack-windows": "cd ./build-windows && index.bat",
     "pack-mac": "cd ./build-mac && chmod +x index.sh && ./index.sh",
-    "doc": "vite build --mode doc"
+    "doc": "vite build --mode doc",
+    "lint": "eslint . --fix --ignore-pattern 'dist/**' --ignore-pattern 'dist-doc/**'",
+    "format": "prettier --write \"**/*.{vue,js,jsx,ts,tsx,css,scss,html,json}\" --ignore-path .gitignore",
+    "lint:style": "stylelint \"**/*.{vue,css,scss}\" --fix",
+    "lint:all": "npm run lint && npm run format && npm run lint:style"
   },
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.1",

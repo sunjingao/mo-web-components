@@ -39,37 +39,28 @@
     <div v-if="$slots.tableAbove" class="mt-8px">
       <slot name="tableAbove" />
     </div>
-    <div ref="tableContainerDomRef" class="table-container">
-      <!--table左边的插槽-->
-      <div v-if="$slots.tableLeft" class="table-slot">
-        <slot name="tableLeft" />
-      </div>
-      <m-table
-        ref="antTableComponentRef"
-        v-model:paginationParams="tableConfigRef.condition"
-        class="flex-1"
-        v-bind="getProps($attrs)"
-        :sticky="stickyRef"
-        :columns="pageConfigRef.shownColumns"
-        :operationsColumn="operationsColumn"
-        :dataSource="tableConfigRef.table.data"
-        :loading="tableConfigRef.isLoading"
-        :multiple="abilityConfigRef.multipleConfig"
-        :pagination="tableConfigRef.table.pageable"
-        :paginationMap="paginationMap"
-        @change="handlePaginationChange"
-        @cancelMultiple="handleCancelMultiple"
-      >
-        <!--多余的也不会显示，索性已全部导入，还方便-->
-        <template v-for="(_, name) in $slots" #[name]="bindValue">
-          <slot v-bind="bindValue" :key="name" :name="name" />
-        </template>
-      </m-table>
-      <!--table右边的插槽-->
-      <div v-if="$slots.tableRight" class="table-slot">
-        <slot name="tableRight" />
-      </div>
-    </div>
+
+    <m-table
+      ref="antTableComponentRef"
+      v-model:paginationParams="tableConfigRef.condition"
+      class="table-container"
+      v-bind="getProps($attrs)"
+      :sticky="stickyRef"
+      :columns="pageConfigRef.shownColumns"
+      :operationsColumn="operationsColumn"
+      :dataSource="tableConfigRef.table.data"
+      :loading="tableConfigRef.isLoading"
+      :multiple="abilityConfigRef.multipleConfig"
+      :pagination="tableConfigRef.table.pageable"
+      :paginationMap="paginationMap"
+      @change="handlePaginationChange"
+      @cancelMultiple="handleCancelMultiple"
+    >
+      <!--多余的也不会显示，索性已全部导入，还方便-->
+      <template v-for="(_, name) in $slots" #[name]="bindValue">
+        <slot v-bind="bindValue" :key="name" :name="name" />
+      </template>
+    </m-table>
     <!--操作列弹窗-->
     <custom-columns-modal
       v-if="isShowCustomColumnsModalRef"
@@ -114,7 +105,7 @@ export default defineComponent({
 
     const { antTableComponentRef, getProps } = useAntTable();
 
-    const { tableContainerDomRef, stickyRef, handleFullScreen } = useFullscreen();
+    const { stickyRef, handleFullScreen } = useFullscreen(antTableComponentRef);
 
     const pageTopTabsConfigRf = ref({
       data: ''
@@ -280,7 +271,6 @@ export default defineComponent({
       abilityRef,
       handleFullScreen,
       stickyRef,
-      tableContainerDomRef,
       getParamsAsync
     };
   }

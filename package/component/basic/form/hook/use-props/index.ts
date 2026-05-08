@@ -30,7 +30,7 @@ export function useProps() {
   function getFormItemProps(attrs) {
     // 排除干扰项
     /* eslint-disable-next-line */
-    const componentProps = cloneDeep(attrs)
+    const componentProps = cloneDeep(attrs);
     for (const propName of Object.values(get_EFFECT_FORM_ITEM_PROPS(attrs))) {
       delete componentProps[propName];
     }

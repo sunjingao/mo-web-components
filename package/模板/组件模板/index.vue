@@ -1,5 +1,6 @@
 <template>
-  <div
+  <component
+    :is="'div'"
     v-bind="getProps($attrs)"
     :class="[`m-demo`, $attrs.class]"
     :style="$attrs.style"
@@ -7,7 +8,7 @@
     <template v-for="(_, name) in getSlots($slots)" #[name]="bindValue">
       <slot v-bind="bindValue" :key="name" :name="name" />
     </template>
-  </div>
+  </component>
 </template>
 
 <script lang="ts">
@@ -23,7 +24,7 @@ export default defineComponent({
 
   emits: EMITS_DEC,
 
-  setup(_, {expose}) {
+  setup(_, { expose }) {
     const { getProps } = useProps();
     const { getSlots } = useSlots();
 
