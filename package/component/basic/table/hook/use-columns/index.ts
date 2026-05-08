@@ -55,7 +55,8 @@ function getOperationsColumnWidth(operationsColumnItems) {
   showBtns.forEach((val, index) => {
     // 计算每个按钮的大小
     if (String(val.label).length <= 3) {
-      opsColumnLen = opsColumnLen + btnLength[String(val.label).length];
+      // 数字2比较特别，浏览器有时候处理像素的问题，是特别处理
+      opsColumnLen = opsColumnLen + btnLength[String(val.label).length] + 2;
     } else {
       opsColumnLen =
         opsColumnLen + btnLength['3'] + (String(val.label).length - 3) * btnLength.space;

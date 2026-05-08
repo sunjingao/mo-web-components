@@ -12,6 +12,7 @@
   <m-table
         :columns="columns"
         :dataSource="dataSource" 
+        :operationsColumn="operationsColumn"
     >
 </m-table>
 </template>
@@ -45,7 +46,20 @@ const dataSource = ref([
         ]
 )
 
+const operationsColumn = ref({
+  items: [
+    {
+      label: '驳驳',
+      isShowModal: true,
+      async confirmAsync(val) {
+        console.log('驳驳 onclick', val);
+      }
+    },
+  ]
+});
+
 </script>
+
 ```
 
 
@@ -113,18 +127,6 @@ const operationsColumn = ref({
         console.log('通过 onclick', val);
       }
     },
-    {
-      label: '拒绝',
-      async confirmAsync(val) {
-        console.log('拒绝 onclick', val);
-      }
-    },
-    {
-      label: '驳回驳回驳回',
-      async confirmAsync(val) {
-        console.log('驳回驳回驳回 onclick', val);
-      }
-    }
   ]
 });
 
