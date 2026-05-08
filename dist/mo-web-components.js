@@ -77478,7 +77478,7 @@ function kse(e) {
   let a = 0;
   const i = e.length < 3 ? e : e.slice(0, 2);
   return i.forEach((s, c) => {
-    String(s.label).length <= 3 ? a = a + t[String(s.label).length] : a = a + t[3] + (String(s.label).length - 3) * t.space, c > 0 && (a = a + n);
+    String(s.label).length <= 3 ? a = a + t[String(s.label).length] + 2 : a = a + t[3] + (String(s.label).length - 3) * t.space, c > 0 && (a = a + n);
   }), i.length < e.length && (a = a + o + r + 2), a = a + l, a;
 }
 function Bse(e) {
