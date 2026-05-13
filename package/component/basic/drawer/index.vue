@@ -4,7 +4,9 @@
     :style="$attrs.style"
     v-bind="getProps($attrs)"
     :closable="false"
+    :keyboard="false"
   >
+    <!-- 上面去掉closable和keyboard，原因是可鞥需要提示用户，编辑和新增内容将失效 -->
     <template v-for="(_, name) in getSlots($slots)" #[name]="bindValue">
       <slot v-bind="bindValue" :key="name" :name="name" />
     </template>
