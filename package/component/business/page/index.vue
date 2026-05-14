@@ -9,10 +9,10 @@
     />
     <!--搜索条件-->
     <m-form
-      v-if="condition"
+      v-if="conditionCp"
       ref="formCompRef"
       v-model="formConfigRef.data"
-      v-bind="condition"
+      v-bind="conditionCp"
       :type="FORM_TYPE.tableCondition"
       :columnsNumber="formConfigRef.length"
       @query="handleFormQuery"
@@ -133,6 +133,39 @@ export default defineComponent({
         pageable: {}
       },
       condition: {}
+    });
+
+    const conditionCp = computed(() => {
+      const conditionClone = cloneDeep(props.condition);
+      // 对多选的特殊处理
+      conditionClone.items.forEach((item) => {
+        if (
+          item.componentName === 'mSelect' &&
+          item.componentProps &&
+          item.componentProps.mode === 'multiple'
+        ) {
+          // select下拉多选的时候会换航，导致样式问题
+          item.componentProps.maxTagCount = 'responsive';
+          return;
+        } else if (
+          item.componentName === 'mCascader' &&
+          item.componentProps &&
+          item.componentProps.multiple
+        ) {
+          // cascader下拉多选的时候会换航，导致样式问题
+          item.componentProps.maxTagCount = 'responsive';
+          return;
+        } else if (
+          item.componentName === 'mTreeSelect' &&
+          item.componentProps &&
+          item.componentProps.multiple
+        ) {
+          // mTreeSelect下拉多选的时候会换航，导致样式问题
+          item.componentProps.maxTagCount = 'responsive';
+          return;
+        }
+      });
+      return conditionClone;
     });
 
     async function getParamsAsync() {
@@ -271,7 +304,8 @@ export default defineComponent({
       abilityRef,
       handleFullScreen,
       stickyRef,
-      getParamsAsync
+      getParamsAsync,
+      conditionCp
     };
   }
 });

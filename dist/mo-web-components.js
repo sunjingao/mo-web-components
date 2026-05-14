@@ -80705,70 +80705,84 @@ const pde = Z({
         pageable: {}
       },
       condition: {}
+    }), b = P(() => {
+      const _ = _e(e.condition);
+      return _.items.forEach((M) => {
+        if (M.componentName === "mSelect" && M.componentProps && M.componentProps.mode === "multiple") {
+          M.componentProps.maxTagCount = "responsive";
+          return;
+        } else if (M.componentName === "mCascader" && M.componentProps && M.componentProps.multiple) {
+          M.componentProps.maxTagCount = "responsive";
+          return;
+        } else if (M.componentName === "mTreeSelect" && M.componentProps && M.componentProps.multiple) {
+          M.componentProps.maxTagCount = "responsive";
+          return;
+        }
+      }), _;
     });
-    async function b() {
-      let E = {};
+    async function y() {
+      let _ = {};
       if (u.value.data) {
-        const M = {
+        const R = {
           [e.pageTopTabs.uploadKey]: u.value.data
         };
-        Object.assign(E, M);
+        Object.assign(_, R);
       }
       if (d.value.data) {
-        const M = _e(d.value.data);
-        Object.assign(E, _e(M));
+        const R = _e(d.value.data);
+        Object.assign(_, _e(R));
       }
       if (Object.keys(d.value.data).length === 1 ? d.value.length = 2 : d.value.length = 3, h.value.data) {
-        const M = {
+        const R = {
           [e.tableAboveTabs.uploadKey]: h.value.data
         };
-        Object.assign(E, M);
+        Object.assign(_, R);
       }
-      return g.value.condition.pagination && Object.assign(E, g.value.condition.pagination), e.getTableDataExtraParamsAsync && (E = await e.getTableDataExtraParamsAsync(E)), Promise.resolve(E);
+      return g.value.condition.pagination && Object.assign(_, g.value.condition.pagination), e.getTableDataExtraParamsAsync && (_ = await e.getTableDataExtraParamsAsync(_)), Promise.resolve(_);
     }
-    async function y() {
+    async function S() {
       g.value.isLoading = !0;
       try {
         g.value.isFirstGetTable && e.delayFirstAsync && (await e.delayFirstAsync(), g.value.isFirstGetTable = !1);
-        const E = await b(), _ = await e.getTableDataAsync(E);
-        g.value.table.data = _.data, g.value.table.pageable = _.pageable;
+        const _ = await y(), M = await e.getTableDataAsync(_);
+        g.value.table.data = M.data, g.value.table.pageable = M.pageable;
       } catch {
         g.value.table.data = [];
       } finally {
         g.value.isLoading = !1;
       }
     }
-    function S(...E) {
-      p.value.handleCancelMultiple(...E);
+    function C(..._) {
+      p.value.handleCancelMultiple(..._);
     }
-    function C() {
+    function w() {
       d.value.data = {}, rt(() => {
         a.value.reset();
       });
-    }
-    function w() {
-      a.value.reset();
     }
     function $() {
       a.value.reset();
     }
     function O() {
+      a.value.reset();
+    }
+    function x() {
       d.value.data = {}, rt(() => {
         a.value.reset();
       });
     }
-    function x() {
-      y();
-    }
     function I() {
+      S();
+    }
+    function E() {
       o.value = !0;
     }
     return t({
       antFormComponent: P(() => l.value && l.value.antFormComponent || null),
       antTableComponent: P(() => a.value.antTableComponent),
-      handleFormQuery: $,
+      handleFormQuery: O,
       // 点击搜索
-      getTableData: y
+      getTableData: S
       // 获取table数据
     }), {
       formCompRef: l,
@@ -80776,24 +80790,25 @@ const pde = Z({
       tableConfigRef: g,
       formConfigRef: d,
       getProps: i,
-      handleFormQuery: $,
-      handleFormReset: O,
-      handleCancelMultiple: S,
+      handleFormQuery: O,
+      handleFormReset: x,
+      handleCancelMultiple: C,
       pageTopTabsConfigRf: u,
       tableAboveTabsConfigRef: h,
       FORM_TYPE: Ia,
       abilityConfigRef: v,
-      handlePaginationChange: x,
-      handlePageTopTabChange: C,
-      handleTableAboveTabChange: w,
+      handlePaginationChange: I,
+      handlePageTopTabChange: w,
+      handleTableAboveTabChange: $,
       pageConfigRef: n,
       isShowCustomColumnsModalRef: o,
-      handleOpenResizeModal: I,
+      handleOpenResizeModal: E,
       handleCustomColumnsChange: r,
       abilityRef: p,
       handleFullScreen: c,
       stickyRef: s,
-      getParamsAsync: b
+      getParamsAsync: y,
+      conditionCp: b
     };
   }
 }), vde = {
@@ -80813,12 +80828,12 @@ function gde(e, t, n, o, r, l) {
       tabsConfig: e.pageTopTabs,
       onChange: e.handlePageTopTabChange
     }, null, 8, ["modelValue", "tabsConfig", "onChange"])) : St("", !0),
-    e.condition ? (Re(), Et(i, Ft({
+    e.conditionCp ? (Re(), Et(i, Ft({
       key: 1,
       ref: "formCompRef",
       modelValue: e.formConfigRef.data,
       "onUpdate:modelValue": t[1] || (t[1] = (d) => e.formConfigRef.data = d)
-    }, e.condition, {
+    }, e.conditionCp, {
       type: e.FORM_TYPE.tableCondition,
       columnsNumber: e.formConfigRef.length,
       onQuery: e.handleFormQuery,
@@ -80878,7 +80893,7 @@ function gde(e, t, n, o, r, l) {
     }, null, 8, ["open", "config", "onChange"])) : St("", !0)
   ], 6);
 }
-const mde = /* @__PURE__ */ _n(pde, [["render", gde], ["__scopeId", "data-v-81b293b3"]]), hde = {}, bde = Object.values(hde), yde = {};
+const mde = /* @__PURE__ */ _n(pde, [["render", gde], ["__scopeId", "data-v-be98584c"]]), hde = {}, bde = Object.values(hde), yde = {};
 function Sde() {
   function e(t) {
     const { style: n, ...o } = t;
