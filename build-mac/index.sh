@@ -29,7 +29,13 @@ cd ./dist
 # 如果你 dist 目录下还有单独的 git.js，请告诉我，我再帮你调整
 node ../build-mac/order/git.js
 
-# 8. 回到根目录发布
+# 8. 检查 npm 登录状态
+if ! npm whoami > /dev/null 2>&1; then
+    echo "npm 未登录，正在打开登录页面..."
+    npm login
+fi
+
+# 9. 回到根目录发布
 cd ..
 npm publish || {
     # 发布失败，回滚版本（用 build-mac 里的脚本）
