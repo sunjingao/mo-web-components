@@ -29,11 +29,10 @@ cd ./dist
 # 如果你 dist 目录下还有单独的 git.js，请告诉我，我再帮你调整
 node ../build-mac/order/git.js
 
-# 8. 检查 npm 登录状态
-if ! npm whoami > /dev/null 2>&1; then
-    echo "npm 未登录，正在打开登录页面..."
-    npm login
-fi
+# 8. 重新登录 npm（确保认证有效）
+echo "正在登录 npm..."
+npm logout
+npm login
 
 # 9. 回到根目录发布
 cd ..
