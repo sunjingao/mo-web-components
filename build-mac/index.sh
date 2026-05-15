@@ -31,7 +31,7 @@ node ../build-mac/order/git.js
 
 # 8. 重新登录 npm（确保认证有效）
 echo "正在登录 npm..."
-npm logout
+npm logout 2>/dev/null || true
 npm login
 
 # 9. 回到根目录发布
