@@ -64,7 +64,7 @@ const INDEX_COLUMN = {
   title: '序号',
   dataIndex: 'index',
   fixed: 'left',
-  width: 70
+  width: 100
 };
 
 // table column的操作列

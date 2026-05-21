@@ -77078,7 +77078,7 @@ const hse = /* @__PURE__ */ _n(vse, [["render", mse], ["__scopeId", "data-v-0c8c
   title: "序号",
   dataIndex: "index",
   fixed: "left",
-  width: 70
+  width: 100
 }, Cy = {
   title: "操作",
   dataIndex: "operationsColumn",
