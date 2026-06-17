@@ -96,7 +96,7 @@ const customFileType = ref([
     }
 ])
 
-function uploadAsync(formData) {
+function uploadAsync(option) {
     return new Promise(
         resolve => {
             setTimeout(
@@ -165,7 +165,7 @@ async function downloadAsync() {
     console.log('downloadAsync', arguments)
 }
 
-function uploadAsync(formData) {
+function uploadAsync(option) {
     return new Promise(
         resolve => {
             setTimeout(

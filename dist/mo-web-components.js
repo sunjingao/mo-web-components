@@ -78427,15 +78427,13 @@ function Kce(e, t, n, o, r, l) {
     });
   }
   async function c(u) {
-    const d = new FormData();
-    d.append("file", u.file);
-    const p = r.value.findIndex((v) => v === u.file);
-    e(d).then(async (v) => {
+    const d = r.value.findIndex((p) => p === u.file);
+    e(u).then(async (p) => {
       u.onSuccess({
-        ...v
+        ...p
       });
     }).catch(() => {
-      r.value.splice(p, 1);
+      r.value.splice(d, 1);
     });
   }
   return {

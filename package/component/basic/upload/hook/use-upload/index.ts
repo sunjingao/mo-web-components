@@ -111,10 +111,10 @@ export function useUpload(
   }
 
   async function handleCustomRequest(option) {
-    const formData = new FormData();
-    formData.append('file', option.file);
+    // const formData = new FormData();
+    // formData.append('file', option.file);
     const foundIndex = fileListVM.value.findIndex((item) => item === option.file);
-    uploadAsync(formData)
+    uploadAsync(option)
       .then(async (result) => {
         option.onSuccess({
           ...result
