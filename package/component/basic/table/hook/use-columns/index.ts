@@ -59,7 +59,7 @@ function getOperationsColumnWidth(operationsColumnItems) {
       opsColumnLen = opsColumnLen + btnLength[String(val.label).length] + 2;
     } else {
       opsColumnLen =
-        opsColumnLen + btnLength['3'] + (String(val.label).length - 3) * btnLength.space;
+        opsColumnLen + btnLength['3'] + (String(val.label).length - 3) * btnLength.space + 2;
     }
     // 非第一个时，减去border
     if (index > 0) {
